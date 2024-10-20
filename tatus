@@ -1,0 +1,100 @@
+[33mcommit aa7cdfb7083a2678223fc293b9acb4201009ae8f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: UltravixUltrascore <100244377+UltravixUltrascore@users.noreply.github.com>
+Date:   Sun Oct 20 18:19:00 2024 +0200
+
+    Commit - Progetti di trading quantitativo
+
+ MM.py                                              |    207 [32m+[m
+ RSI-MACD-varie.py                                  |    292 [32m+[m
+ Struttura UltraAdvanced.txt                        |     84 [32m+[m
+ UltraAdvanced.py                                   |    344 [32m+[m
+ benchmark.py                                       |    284 [32m+[m
+ best_params.json                                   |      1 [32m+[m
+ best_params.pkl                                    |    Bin [31m0[m -> [32m207[m bytes
+ cache/AAPL_data.csv                                |   2015 [32m+[m
+ dettagli_trades.csv                                |      6 [32m+[m
+ download_chromedriver.py                           |     51 [32m+[m
+ .../BayesianOptimization-0.0.0.dist-info/INSTALLER |      1 [32m+[m
+ .../LICENSE.txt                                    |    674 [32m+[m
+ .../BayesianOptimization-0.0.0.dist-info/METADATA  |     14 [32m+[m
+ .../BayesianOptimization-0.0.0.dist-info/RECORD    |      9 [32m+[m
+ .../BayesianOptimization-0.0.0.dist-info/REQUESTED |      0
+ .../BayesianOptimization-0.0.0.dist-info/WHEEL     |      5 [32m+[m
+ .../top_level.txt                                  |      1 [32m+[m
+ .../site-packages/BayesianOptimization/__init__.py |      1 [32m+[m
+ .../__pycache__/__init__.cpython-310.pyc           |    Bin [31m0[m -> [32m201[m bytes
+ ensemble_env/Lib/site-packages/IPython/__init__.py |    163 [32m+[m
+ ensemble_env/Lib/site-packages/IPython/__main__.py |     15 [32m+[m
+ .../IPython/__pycache__/__init__.cpython-310.pyc   |    Bin [31m0[m -> [32m5496[m bytes
+ .../IPython/__pycache__/__main__.cpython-310.pyc   |    Bin [31m0[m -> [32m273[m bytes
+ .../IPython/__pycache__/conftest.cpython-310.pyc   |    Bin [31m0[m -> [32m2530[m bytes
+ .../IPython/__pycache__/consoleapp.cpython-310.pyc |    Bin [31m0[m -> [32m511[m bytes
+ .../IPython/__pycache__/display.cpython-310.pyc    |    Bin [31m0[m -> [32m896[m bytes
+ .../IPython/__pycache__/paths.cpython-310.pyc      |    Bin [31m0[m -> [32m3647[m bytes
+ ensemble_env/Lib/site-packages/IPython/conftest.py |     87 [32m+[m
+ .../Lib/site-packages/IPython/consoleapp.py        |     12 [32m+[m
+ .../Lib/site-packages/IPython/core/__init__.py     |      0
+ .../core/__pycache__/__init__.cpython-310.pyc      |    Bin [31m0[m -> [32m172[m bytes
+ .../IPython/core/__pycache__/alias.cpython-310.pyc |    Bin [31m0[m -> [32m7166[m bytes
+ .../core/__pycache__/application.cpython-310.pyc   |    Bin [31m0[m -> [32m14212[m bytes
+ .../core/__pycache__/async_helpers.cpython-310.pyc |    Bin [31m0[m -> [32m4952[m bytes
+ .../core/__pycache__/autocall.cpython-310.pyc      |    Bin [31m0[m -> [32m2096[m bytes
+ .../core/__pycache__/builtin_trap.cpython-310.pyc  |    Bin [31m0[m -> [32m2870[m bytes
+ .../core/__pycache__/compilerop.cpython-310.pyc    |    Bin [31m0[m -> [32m5813[m bytes
+ .../core/__pycache__/completer.cpython-310.pyc     |    Bin [31m0[m -> [32m92197[m bytes
+ .../core/__pycache__/completerlib.cpython-310.pyc  |    Bin [31m0[m -> [32m9452[m bytes
+ .../core/__pycache__/crashhandler.cpython-310.pyc  |    Bin [31m0[m -> [32m6686[m bytes
+ .../core/__pycache__/debugger.cpython-310.pyc      |    Bin [31m0[m -> [32m29116[m bytes
+ .../core/__pycache__/display.cpython-310.pyc       |    Bin [31m0[m -> [32m38938[m bytes
+ .../__pycache__/display_functions.cpython-310.pyc  |    Bin [31m0[m -> [32m11883[m bytes
+ .../core/__pycache__/display_trap.cpython-310.pyc  |    Bin [31m0[m -> [32m1748[m bytes
+ .../core/__pycache__/displayhook.cpython-310.pyc   |    Bin [31m0[m -> [32m9907[m bytes
+ .../core/__pycache__/displaypub.cpython-310.pyc    |    Bin [31m0[m -> [32m5176[m bytes
+ .../IPython/core/__pycache__/error.cpython-310.pyc |    Bin [31m0[m -> [32m1638[m bytes
+ .../core/__pycache__/events.cpython-310.pyc        |    Bin [31m0[m -> [32m5529[m bytes
+ .../core/__pycache__/excolors.cpython-310.pyc      |    Bin [31m0[m -> [32m2665[m bytes
+ .../core/__pycache__/extensions.cpython-310.pyc    |    Bin [31m0[m -> [32m4782[m bytes
+ .../core/__pycache__/formatters.cpython-310.pyc    |    Bin [31m0[m -> [32m30312[m bytes
+ .../core/__pycache__/getipython.cpython-310.pyc    |    Bin [31m0[m -> [32m589[m bytes
+ .../core/__pycache__/guarded_eval.cpython-310.pyc  |    Bin [31m0[m -> [32m22189[m bytes
+ .../core/__pycache__/history.cpython-310.pyc       |    Bin [31m0[m -> [32m29650[m bytes
+ .../core/__pycache__/historyapp.cpython-310.pyc    |    Bin [31m0[m -> [32m5084[m bytes
+ .../IPython/core/__pycache__/hooks.cpython-310.pyc |    Bin [31m0[m -> [32m5279[m bytes
+ .../core/__pycache__/inputsplitter.cpython-310.pyc |    Bin [31m0[m -> [32m20282[m bytes
+ .../__pycache__/inputtransformer.cpython-310.pyc   |    Bin [31m0[m -> [32m15808[m bytes
+ .../__pycache__/inputtransformer2.cpython-310.pyc  |    Bin [31m0[m -> [32m24746[m bytes
+ .../__pycache__/interactiveshell.cpython-310.pyc   |    Bin [31m0[m -> [32m106494[m bytes
+ .../core/__pycache__/latex_symbols.cpython-310.pyc |    Bin [31m0[m -> [32m63037[m bytes
+ .../core/__pycache__/logger.cpython-310.pyc        |    Bin [31m0[m -> [32m5673[m bytes
+ .../IPython/core/__pycache__/macro.cpython-310.pyc |    Bin [31m0[m -> [32m1780[m bytes
+ .../IPython/core/__pycache__/magic.cpython-310.pyc |    Bin [31m0[m -> [32m21701[m bytes
+ .../__pycache__/magic_arguments.cpython-310.pyc    |    Bin [31m0[m -> [32m9496[m bytes
+ .../core/__pycache__/oinspect.cpython-310.pyc      |    Bin [31m0[m -> [32m29847[m bytes
+ .../IPython/core/__pycache__/page.cpython-310.pyc  |    Bin [31m0[m -> [32m8237[m bytes
+ .../core/__pycache__/payload.cpython-310.pyc       |    Bin [31m0[m -> [32m1470[m bytes
+ .../core/__pycache__/payloadpage.cpython-310.pyc   |    Bin [31m0[m -> [32m1434[m bytes
+ .../core/__pycache__/prefilter.cpython-310.pyc     |    Bin [31m0[m -> [32m19614[m bytes
+ .../core/__pycache__/profileapp.cpython-310.pyc    |    Bin [31m0[m -> [32m9597[m bytes
+ .../core/__pycache__/profiledir.cpython-310.pyc    |    Bin [31m0[m -> [32m7858[m bytes
+ .../core/__pycache__/prompts.cpython-310.pyc       |    Bin [31m0[m -> [32m1159[m bytes
+ .../core/__pycache__/pylabtools.cpython-310.pyc    |    Bin [31m0[m -> [32m12747[m bytes
+ .../core/__pycache__/release.cpython-310.pyc       |    Bin [31m0[m -> [32m1169[m bytes
+ .../core/__pycache__/shellapp.cpython-310.pyc      |    Bin [31m0[m -> [32m15641[m bytes
+ .../core/__pycache__/splitinput.cpython-310.pyc    |    Bin [31m0[m -> [32m3888[m bytes
+ .../core/__pycache__/ultratb.cpython-310.pyc       |    Bin [31m0[m -> [32m38720[m bytes
+ .../IPython/core/__pycache__/usage.cpython-310.pyc |    Bin [31m0[m -> [32m13281[m bytes
+ .../Lib/site-packages/IPython/core/alias.py        |    267 [32m+[m
+ .../Lib/site-packages/IPython/core/application.py  |    492 [32m+[m
+ .../site-packages/IPython/core/async_helpers.py    |    155 [32m+[m
+ .../Lib/site-packages/IPython/core/autocall.py     |     70 [32m+[m
+ .../Lib/site-packages/IPython/core/builtin_trap.py |     86 [32m+[m
+ .../Lib/site-packages/IPython/core/compilerop.py   |    214 [32m+[m
+ .../Lib/site-packages/IPython/core/completer.py    |   3389 [32m+[m
+ .../Lib/site-packages/IPython/core/completerlib.py |    382 [32m+[m
+ .../Lib/site-packages/IPython/core/crashhandler.py |    236 [32m+[m
+ .../Lib/site-packages/IPython/core/debugger.py     |   1136 [32m+[m
+ .../Lib/site-packages/IPython/core/display.py      |   1294 [32m+[m
+ .../IPython/core/display_functions.py              |    391 [32m+[m
+ .../Lib/site-packages/IPython/core/display_trap.py |     70 [32m+[m
+ .../Lib/site-packages/IPython/core/displayhook.py  |    336 [32m+[m
+ .../Lib/site-packages/IPython/core/displaypub.py   | 
