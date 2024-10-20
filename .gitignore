@@ -29,3 +29,4 @@ ensemble_env/
 *.pyc
 __pycache__/
 .vscode/
+trading-strategies/
