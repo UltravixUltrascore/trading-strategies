@@ -149,7 +149,7 @@ def optimize_hyperparameters(X_train, y_train):
             n_jobs=-1,
             enable_categorical=False
         )
-        scores = cross_val_score(model, X_train, y_train, cv=3, scoring='accuracy')
+        scores = cross_val_score(model, X_train, y_train, cv=3, scoring='f1')
         return scores.mean()
 
     pbounds = {
