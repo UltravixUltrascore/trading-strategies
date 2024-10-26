@@ -101,21 +101,23 @@ def plot_equity_with_trades(df, trades_log):
     plt.ylabel('Valore del Portafoglio')
     plt.legend()
     plt.grid()
-    plt.show()
+    
+    # Salva il grafico come file anziché visualizzarlo
+    plt.savefig("Walk Forward Opt - Sortino")
+    plt.close()
 
 
 def backtest_strategy(df, params):
     stop_loss = params['stop_loss']
     take_profit = params['take_profit']
     
-    # Inizializza la colonna con il valore iniziale del portafoglio e forza il tipo float
-    df['Portfolio_Value'] = 1000.0  # Valore iniziale del portafoglio
-    df['Portfolio_Value'] = df['Portfolio_Value'].astype(float)  # Forza il tipo float
-    df['Strategy_Returns'] = 0.0  # Inizializza la colonna dei rendimenti della strategia
+    df['Portfolio_Value'] = 1000.0
+    df['Portfolio_Value'] = df['Portfolio_Value'].astype(float)
+    df['Strategy_Returns'] = 0.0
 
     trade_open = False
     trades_log_list = []
-    
+
     print(f"Inizio del backtest inverso con i parametri: Stop Loss: {stop_loss}, Take Profit: {take_profit}")
     
     for i in range(1, len(df)):
@@ -124,27 +126,22 @@ def backtest_strategy(df, params):
         exit_date = df.index[i]
         direction = None
 
-        # Condizione per evitare nuovi segnali troppo ravvicinati
         if not trade_open:
-            # Logica inversa per entrare in una nuova posizione (Compra quando la strategia suggerisce di vendere)
             if daily_return > take_profit:
-                df.at[df.index[i], 'Strategy_Returns'] = -take_profit  # Inversa: vendo
+                df.at[df.index[i], 'Strategy_Returns'] = -take_profit
                 trade_open = True
                 direction = 'Sell'
             elif daily_return < -stop_loss:
-                df.at[df.index[i], 'Strategy_Returns'] = stop_loss  # Inversa: compro
+                df.at[df.index[i], 'Strategy_Returns'] = stop_loss
                 trade_open = True
                 direction = 'Buy'
         else:
-            # Logica inversa per chiudere la posizione
             if daily_return <= -take_profit or daily_return >= stop_loss:
                 df.at[df.index[i], 'Strategy_Returns'] = daily_return
-                trade_open = False  # Chiudi la posizione
+                trade_open = False
 
-        # Aggiorna il valore cumulato del portafoglio
         df.at[df.index[i], 'Portfolio_Value'] = df['Portfolio_Value'].iloc[i - 1] * (1 + df['Strategy_Returns'].iloc[i])
 
-        # Registra i dettagli del trade solo se un trade è stato aperto o chiuso
         if df['Strategy_Returns'].iloc[i] != 0:
             trade_details = {
                 'Entry_Date': entry_date if trade_open else df.index[i],
@@ -170,7 +167,8 @@ def backtest_strategy(df, params):
     print(f"Sortino Ratio: {sortino:.2f}")
     print(f"Max Drawdown: {max_drawdown * 100:.2f}%")
 
-    plot_equity_with_trades(df, trades_log)
+    # Salva il grafico su file, specificando il nome
+    plot_equity_with_trades(df, trades_log, filename=f"equity_plot_{params['stop_loss']}_{params['take_profit']}.png")
 
     return df, trades_log
 
