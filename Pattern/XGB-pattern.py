@@ -153,11 +153,11 @@ def optimize_hyperparameters(X_train, y_train):
         return scores.mean()
 
     pbounds = {
-        'n_estimators': (50, 200),
-        'max_depth': (3.0, 15),
-        'learning_rate': (0.01, 0.1),
-        'subsample': (0.01, 0.1),
-        'colsample_bytree': (0.01, 0.1)
+        'n_estimators': (100, 200),
+        'max_depth': (3.0, 20),
+        'learning_rate': (0.01, 0.2),
+        'subsample': (0.01, 0.2),
+        'colsample_bytree': (0.01, 0.2)
     }
 
     optimizer = BayesianOptimization(
